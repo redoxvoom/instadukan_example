@@ -1,0 +1,22 @@
+//Task 
+//Changes to made under src/stores/ "modify exampleStore object"
+
+import {configure, makeAutoObservable} from 'mobx';
+configure({
+  useProxies: 'never',
+});
+
+class BusinessGroup {
+  constructor({apiManager = null}) {
+    this.storeName = 'BusinessGroup';
+    this.storageExclusions = ['apiManager', 'authStore'];
+    if (apiManager) {
+      this.apiManager = apiManager;
+    }
+    makeAutoObservable(this);
+  }
+
+ 
+}
+
+export default ExampleStore;
